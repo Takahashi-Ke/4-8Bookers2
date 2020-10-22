@@ -1,22 +1,23 @@
-
-<h2>Books</h2>
-
-<table class="book-contents">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <% @books.each do |book| %>
-    <tbody>
+<%= render 'users/profile', user: @user, book: @book %>
+<div class="book-list">
+  <h2>Books</h2>
+  <table class="book-contents">
+    <thead>
       <tr>
-        <td><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
-        <td><%= link_to book.title, book_path(book.id) %></td>
-        <td><%= book.body %></td>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
       </tr>
-    </tbody>
-  <% end %>
-</table>
+    </thead>
+    <% @books.each do |book| %>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
+          <td><%= link_to book.title, book_path(book.id) %></td>
+          <td><%= book.body %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
 

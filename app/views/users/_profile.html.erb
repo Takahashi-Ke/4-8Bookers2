@@ -2,7 +2,7 @@
 <h2>User info</h2>
 <div class="user-profile">
   <div class="user-image">
-    <%= attachment_image_tag user, :profile_image, :fill, 120, 120, fallback: "no_image.jpg" %>
+    <%= attachment_image_tag user, :profile_image, :fill, 120, 120, fallback: "no_image.jpg", size:'120x120' %>
   </div>
   <div class="user-name">
       <p>name</p>
@@ -14,7 +14,7 @@
   </div>
 </div>
 <% if user.id == current_user.id %>
-    <p><%= link_to "編集", edit_user_path %></p>
+    <p><%= link_to "編集", edit_user_path(current_user.id) %></p>
 <% else %>
     <p><%= link_to "編集", user_path(current_user.id) %></p>
 <% end %>
