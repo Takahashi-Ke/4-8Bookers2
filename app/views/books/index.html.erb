@@ -1,5 +1,21 @@
-<h2>投稿一覧</h2>
-<% @book.each do |book| %>
-  <%= book.title %>
-  <%= book.body %>
-<% end %>
+<h2>Books</h2>
+
+<table class="book-contents">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= book.user.name %></td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
+        <td><%= book.body %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+

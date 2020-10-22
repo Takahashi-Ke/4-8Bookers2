@@ -1,0 +1,17 @@
+<h2>Book detail</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to @book.user.name, user_path(@book.user.id) %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+    </tr>
+  </tbody>
+</table>
