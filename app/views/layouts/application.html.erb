@@ -10,6 +10,37 @@
   </head>
 
   <body>
+    <header>
+      <div class="app-title">
+        <h1>Bookers</h1>
+      </div>
+      <div class="slidemenu">
+        <% if user_signed_in? %>
+          <ul>
+            <li><%= link_to "Home", user_path(current_user.id) %></li>
+            <li><%= link_to "Users", 'user_path' %></li>
+            <li><%= link_to "Books",'#' %></li>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Abaut", '#' %></li>
+            <li><%= link_to "sign up", new_user_registration_path %></li>
+            <li><%= link_to "log in", new_user_session_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

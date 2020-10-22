@@ -1,0 +1,14 @@
+<h2>User info</h2>
+<div class="user-profile">
+    <div class="user-name">
+        <p>name</p>
+        <p><%= @user.name %></p>
+    </div>
+    <div class="user-intorduction">
+        <p>introducution</p>
+        <p><%= @user.introduction %></p>
+    </div>
+</div>
+<% if @user.id == current_user.id %>
+    <p><%= link_to "編集", edit_user_path %></p>
+<% end %>
