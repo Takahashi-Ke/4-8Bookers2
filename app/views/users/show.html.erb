@@ -1,33 +1,4 @@
-
-<h2>User info</h2>
-<div class="user-profile">
-    <div class="user-name">
-        <p>name</p>
-        <p><%= @user.name %></p>
-    </div>
-    <div class="user-intorduction">
-        <p>introducution</p>
-        <p><%= @user.introduction %></p>
-    </div>
-</div>
-<% if @user.id == current_user.id %>
-    <p><%= link_to "編集", edit_user_path %></p>
-<% else %>
-    <p><%= link_to "編集", user_path(current_user.id) %></p>
-<% end %>
-
-<h2>New Book</h2>
-<%= form_with model: @book,url: books_path, local: true do |f| %>
-    <div class="book-title">
-        <%= f.label :title %><br />
-        <%= f.text_field :title %>
-    </div>
-    <div class="book-opinion">
-        <%= f.label :opinion %><br />
-        <%= f.text_area :body %>
-    </div>
-    <%= f.submit "Cteate Book" %>
-<% end %>
+<%= render 'users/profile', user: @user, book: @book %>
 
 <h2>Books</h2>
 <table class="book-contents">
