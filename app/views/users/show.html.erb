@@ -1,3 +1,4 @@
+
 <h2>User info</h2>
 <div class="user-profile">
     <div class="user-name">
@@ -11,4 +12,17 @@
 </div>
 <% if @user.id == current_user.id %>
     <p><%= link_to "編集", edit_user_path %></p>
+<% end %>
+
+<h2>New Book</h2>
+<%= form_with model: @book,url: books_path, local: true do |f| %>
+    <div class="book-title">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div class="book-opinion">
+        <%= f.label :opinion %>
+        <%= f.text_area :body %>
+    </div>
+    <%= f.submit "Cteate Book" %>
 <% end %>
