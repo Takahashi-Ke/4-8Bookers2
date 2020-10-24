@@ -1,5 +1,15 @@
 class BooksController < ApplicationController
 
+  before_action :correct_user, only: [:edit, :update]
+
+  def correct_user
+    book = Book.find_by(id: params[:id])
+    user = User.find_by(id: book.user_id)
+    unless user.id == current_user.id
+      redirect_to books_path
+    end
+  end
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
